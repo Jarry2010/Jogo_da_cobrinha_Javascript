@@ -1,0 +1,52 @@
+body{
+    height: 92vh;
+    width: 95vw;
+    background-color:darkslategray ;
+}
+
+.corpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+h1{
+    color: floralwhite;
+}
+
+.janela{
+    display: flex;
+}
+
+canvas{
+    border: 2px solid black;
+    border-radius: 2%;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 256px;
+    height: 510px;
+    border: 2px solid black;
+    border-radius: 2%;
+    margin-right: 5px;
+    background-color: rgb(202, 209, 202);
+}
+.inicio{
+    display: flex;
+    flex-direction: column;
+}
+
+.placar h2{
+    display: flex;
+    flex-direction: column;
+}
+span{
+    background-color: white;
+    border: 1px black solid;
+    text-align: center;
+}

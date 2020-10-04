@@ -8,8 +8,23 @@
         <title>Jogo da Cobra</title>
     </head>
     <body>
-        <canvas id="snake" width="512" height="512">
+        <div class="corpo">
+            <h1>Jogo da Cobra</h1>
+            <div class="janela">
+                <div class="menu">
+                    <div class="placar">
+                        <h2>Placar
+                        <span id='placar'>0</span></h2>
+                    </div>
+                    <div class ="inicio">
+                        <h2>Iniciar o Jogo</h2>
+                        <button onclick="start()"> Start</button>
+                    </div>
+                </div>
+                <canvas id="snake" width="512" height="512">
 
-        </canvas>
+                </canvas>            
+            </div>
+        </div>        
     </body>
 </html>

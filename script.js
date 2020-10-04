@@ -1,5 +1,7 @@
 let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
+const tamanhoSpan = document.querySelector('#placar');
+let tamanho = 0;
 let box = 32;
 let snake = [];
 snake[0] = {
@@ -8,13 +10,32 @@ snake[0] = {
 }
 let direction = "right";
 let food = {
-    x: Math.floor(Math.random() * 16) * box,
+        x: Math.floor(Math.random() * 16) * box,
     y: Math.floor(Math.random() * 16) * box
 }
+
+let jogo;
 
 function criarBG(){
     context.fillStyle = "lightgreen";
     context.fillRect(0, 0, 16 * box, 16 * box);
+}
+
+criarBG();
+
+function novoJogo(){
+    snake = [];
+    snake[0] = {
+        x: 7 * box,
+        y: 7 * box
+    };
+    direction = "right";
+    food = {
+        x: Math.floor(Math.random() * 16) * box,
+        y: Math.floor(Math.random() * 16) * box
+    }
+    tamanhoSpan.textContent = 0;
+    tamanho = 0;
 }
 
 function criarCobrinha(){
@@ -29,6 +50,16 @@ function drawFood(){
     context.fillRect(food.x, food.y,box,box);
 }
 
+function fimdoJogo(){
+    for(i = 1; i < snake.length; i++){
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(jogo);
+            alert("fim do jogo!!");
+            break;
+        }
+    }
+}
+
 document.addEventListener('keydown', update);
 
 function update (event){
@@ -40,9 +71,11 @@ function update (event){
 
 function iniciarJogo(){
 
+
     criarBG();
     drawFood();
     criarCobrinha();
+    fimdoJogo();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -62,6 +95,7 @@ function iniciarJogo(){
     }else{
         food.x = Math.floor(Math.random() * 16) * box;
         food.y = Math.floor(Math.random() * 16) * box;
+        tamanhoSpan.textContent = ++tamanho;
     }
 
     
@@ -75,6 +109,9 @@ function iniciarJogo(){
 
 
 }
-
-let jogo = setInterval(iniciarJogo, 100);
+function start(){ 
+    novoJogo();
+    jogo = setInterval(iniciarJogo, 100);
+    return 1;
+}
 
